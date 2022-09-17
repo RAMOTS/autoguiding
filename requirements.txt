@@ -1,4 +1,4 @@
 opencv-python==4.6.0.66
 pyserial==3.5
 numpy==1.23.3
-simple-pid==1.0.1   
+simple_pid==1.0.1

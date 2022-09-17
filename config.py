@@ -5,7 +5,12 @@ filepath = cv2.CAP_DSHOW  # 'IMGP6756.MOV'#'X:/Astrofotos Rohdaten/2022-05-15 Dr
 windowsize = (960, 540)
 
 versionname = 'RAMOTS Autotracking V1'
-scanMethod = 0  # 0 = Contrastlines
+"""
+scanMethod:
+    0 = Contrast lines
+    1 = Brightest Dot
+"""
+scanMethod = 1
 targetPoint = [0.5, 0.5]  # From where does my Vector start?
 viewpos = [0.5, 0.5]
 viewsize = 0.2

@@ -3,9 +3,10 @@ import cv2
 import serial_handling as se
 
 
+# Returns true until esc pressed
 def checkkeyboard():
     # Tastendrucke abfangen
-    k = cv2.waitKey(1)
+    k = cv2.waitKey(2)
     if k == 27:  # Esc key to stop
         return False
     elif k == 119:  # w

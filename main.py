@@ -1,5 +1,5 @@
 import config as cfg
-import contrastlines as cl
+import processing as proc
 import helperfunctions as hf
 import cv2
 import stereoPID as sp
@@ -18,13 +18,11 @@ def playvideo(filepath):
 
     # Frame für Frame durchgehen
     while hf.checkkeyboard():
-        ret_val, frame = cap.read()
+        _, frame = cap.read()
         # print(frame.shape)
 
         # Objektposition finden nach Algo
-        posobj = cfg.targetPoint
-        if cfg.scanMethod == 0:
-            posobj = cl.getvector(frame, showboxes=True)
+        posobj = proc.getTarget(frame)
 
         # Overlays machen
         hf.drawline(frame, posobj, cfg.targetPoint)
@@ -32,8 +30,14 @@ def playvideo(filepath):
 
         # PID Regler einsetzten und anzeigen
         correct = sp.calculatePID(posobj, cfg.targetPoint)
-        hf.drawline(frame, (correct[0] + cfg.targetPoint[0], correct[1] + cfg.targetPoint[1]), cfg.targetPoint,
-                    color=(255, 0, 0))
+        hf.drawline(
+            frame, (
+                 correct[0] + cfg.targetPoint[0],
+                 correct[1] + cfg.targetPoint[1]
+            ),
+            cfg.targetPoint,
+            color=(255, 0, 0)
+        )
 
         # Seriell senden
         if cfg.controlling:

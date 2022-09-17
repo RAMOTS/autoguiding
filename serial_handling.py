@@ -22,10 +22,11 @@ def sendstop():
     # Serial zerlegen und Header bauen
     if not ser.isOpen():
         ser.open()
-    for i in range(0,4):
+    for i in range(0, 4):
         print("Send stop")
         ser.write(bytes(';;1;\n', 'utf-8'))
         time.sleep(0.05)
+
 
 def appendchecksum(data):
     checksum = 0

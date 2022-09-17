@@ -4,7 +4,7 @@ import serial_handling as se
 
 
 def checkkeyboard():
-    #Tastendrucke abfangen
+    # Tastendrucke abfangen
     k = cv2.waitKey(1)
     if k == 27:  # Esc key to stop
         return False
@@ -26,9 +26,9 @@ def checkkeyboard():
         if cfg.controlling:
             se.sendstop()
         cfg.controlling = not cfg.controlling
-    #else:
-        #print(k)
-    #Werte limitieren
+    # else:
+    # print(k)
+    # Werte limitieren
     if cfg.viewsize < 0:
         cfg.viewsize = 0
     if cfg.viewsize > 1:

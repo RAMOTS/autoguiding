@@ -8,6 +8,7 @@ pidy.output_limits = (-1, 1)
 pidx.sample_time = cfg.interval
 pidy.sample_time = cfg.interval
 
+
 def calculatePID(ptobj, pttgt):
     ptx = ptobj[0] - pttgt[0]
     pty = ptobj[1] - pttgt[1]
